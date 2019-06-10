@@ -27,9 +27,9 @@ Todos os testes e configurações demostradas nesse tutorial foram executas em u
  - Verbo: 
    > *POST*
  - Corpo da requisição:
-    ```JSON 
+    ``` JSON 
     {
-      title: "Álbum de fotos do Bicampeonato do clube Atlético Mineiro",
+      Title: "Álbum de fotos do Bicampeonato do clube Atlético Mineiro",
       userId: 1
     }
     ``` 
@@ -46,7 +46,8 @@ Todos os testes e configurações demostradas nesse tutorial foram executas em u
     > albums/{id} <br />  -- Id é valor de  retorno da requisição de Criação do Álbum
  - Verbo: 
    > *DELETE*
-O valor do campo "userId" enviada pela requisição de Criação de Álbum será gerado aleatoriamente nos intervalos de 0 e 5000. 
+
+O valor do campo "*userId*" enviada pela requisição de *Criação de um novo Álbum* será gerado aleatoriamente nos intervalos de 0 e 5000. 
 
 ## FERRAMENTAS TESTADAS:
 
@@ -91,14 +92,14 @@ Abra o arquivo "jmeter.bat" localiza bin do pacote JMeter. <br />
   ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/jmeer-resultstree.JPG) 
   
   O arquivo " TesteAlbum.jmx" foi criado seguindo todos esses passos.
-##### Execução do teste
+##### EXECUÇÃO DO TESTE
  No terminal de sua preferência, selecione o diretório em que o arquivo "TesteAlbum.jmx" está localizado.
  Execute o comando:
  ``` Scripts
  jmeter -n -t TesteAlbum.jmx -e -o Report -l requests.csv
  ```
 
-##### Resultados:
+##### RESULTADOS:
   Abra a pasta *Report* criada, e abra o arquivo "index.html", no qual teremos métricas das requisições realizadas. 
 
    ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/jmeter-results.JPG) 
@@ -124,7 +125,7 @@ Abra o arquivo "jmeter.bat" localiza bin do pacote JMeter. <br />
    ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/jmeter-latencyovertime.JPG)
 
 ### TESTE COM GATLING
-#### Configuração do ambiente:
+#### CONFIGURAÇÃO DO AMBIENTE:
 Baixe a última versão do pacote .zip do [GATLING](https://gatling.io/download/) e em seguida, descompacte o conteúdo em pasta local do seu computador. De forma a facilitar a execução dos testes, execute a seguinte configuração:
 
   1. Em Pesquisar, procure e selecione Sistema 
@@ -136,14 +137,32 @@ Baixe a última versão do pacote .zip do [GATLING](https://gatling.io/download/
 Gatling é uma ferramenta para teste de desempenho de código aberto baseada em *Scala*, *Akka* e *Netty*.
 Possui como pré-requisito, a instalação da versão 8 ou superior do *Java Developer Kit* (JDK).
 
-##### Configuração do cenário de teste:
+##### CONFIGURAÇÃO DO CENÁRIO DE TESTE:
 
-Com o Gatling, os cenários de teste são configurados por meio de scripts escritos em Scala.
-Podemos destacar que *Simulation* é a classe base das simulações com o Gatling, possui quatro principais funcionalidades: configuração do protocolo http, definições de cabeçalhos de requisições, definições de cenários de teste e o controle da simulação em si. Em todo script de teste Gatling deve existir pelo ao menos uma classe que “extenda” a classe *Simulation*.
+Com o Gatling, os cenários de teste são configurados por meio de scripts escritos em *Scala*.
+Podemos destacar que *Simulation* é a classe base das simulações com o Gatling, possui quatro principais funcionalidades: configuração do protocolo http, definições de cabeçalhos de requisições, definições de cenários de teste e o controle da simulação em si. Em todo script de teste Gatling deve existir pelo ao menos uma classe que “extenda” a classe *Simulation*, conforme o código de exemplo abaixo:
+
+``` scala
+class BasicSimulation extends Simulation { 
+
+  val httpConf = http 
+    .baseURL("http://dtidigital.com.br") 
+    
+  val scn = scenario("Teste") 
+    .exec(http("request_1") =
+      .get("/")) 
+    .pause(5) 
+
+  setUp( 
+    scn.inject(atOnceUsers(1)) 
+  ).protocols(httpConf) 
+}
+
+```
 
 Os demais detalhes de configuração podem ser conferidos no arquivo "TesteAlbum.scala"
 
-##### Execução do teste
+##### EXECUÇÃO DO TESTE
 No terminal de sua escolha, execute o comando:
 ``` 
  gatling -sf {DiretorioDoScript} -rf {DiretoDoResulado}   
@@ -151,8 +170,8 @@ No terminal de sua escolha, execute o comando:
 Configurando os parâmetros *DiretorioDoScript* e *DiretoDoResulado* de acordo com diretório em que o arquivo "TesteAlbum.scala" (dentro da pasta *Gatling*) está localizado.
 
 
-##### Resultados:
- Abra a pasta "album - {DataDeExecucao}" criada, e abra o arquivo "index.html", no qual teremos métricas das requisições realizadas. 
+##### RESULTADOS:
+ Abra a pasta "album - {*DataDeExecucao*}" criada, e abra o arquivo "index.html", no qual teremos métricas das requisições realizadas. 
 ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/gatling-results.JPG)
   Com o dashboard gerado temos facilmente as seguintes informações:
 
@@ -169,8 +188,8 @@ Configurando os parâmetros *DiretorioDoScript* e *DiretoDoResulado* de acordo c
    ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/gatling-activeusers.JPG)
 
 ### TESTE COM LOCUST
-O Locust é uma ferramenta *open source* escrita em *Python* para testes de desempenho em aplicações web. 
-#### Configuração do ambiente:
+O Locust é uma ferramenta de código aberto escrita em *Python* para testes de desempenho em aplicações web. 
+#### CONFIGURAÇÃO DO AMBIENTE:
 Locust tem como pré-requisito, o Phyton instalado nas versões 2.7, 3.3, 3.5 ou 3.6;
 Para instalação no ambiente Windows basta executar o comando:
 ```
@@ -179,7 +198,7 @@ python -m pip install locustio
 Ou para Python 3.*
 python3 -m pip install locustio
 ```
-##### Configuração do cenário de teste:
+##### CONFIGURAÇÃO DO CENÁRIO DE TESTE:
 Todo script de teste escrito em Python para o Locust deve ter a seguinte estrutura:
 
 ``` Python
@@ -206,7 +225,7 @@ class GerenciadorTeste(HttpLocust):
 ```
 
 O arquivo "TesteAlbum.py" foi criado seguindo essa estrutura.
-##### Execução do teste
+##### EXECUÇÃO DO TESTE:
 
  No terminal de sua escolha, selecione o diretório em que o arquivo "TesteAlbum.py" está localizado.
  Execute o comando:
@@ -218,7 +237,7 @@ Uma aplicação na porta 8089 será "atachada" ao comando executado no console. 
 
 
 
-##### Resultados:
+##### RESULTADOS:
 Após 1min de execução clique no botão Stop no canto superior esquerdo.
 Após isso será exibido o seguinte painel:
 
