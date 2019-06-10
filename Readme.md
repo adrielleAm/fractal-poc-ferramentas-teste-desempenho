@@ -73,22 +73,22 @@ A versão testada nesse experimento foi a versão 5.1.1. O JMeter tem como pré-
 Abra o arquivo "jmeter.bat" localiza bin do pacote JMeter. <br />
 
   Passo 1: Configure as tarefas a serem executadas no teste (*Add -> Threads(Users) -> Thread Group*).
-![](resources\images\jmeter-theadgroup.JPG)
+![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/jmeter-theadgroup.JPG)
   
   Passo 2: Configure uma requisição padrão com o *endpoint * (https://jsonplaceholder.typicode.com)  necessário para todas as solicitações (*Thread Group -> Config Element -> Http Request Default*).
-![](resources\images\jmeter-httpdefault.JPG)
+![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/jmeter-httpdefault.JPG)
  
   Passo 3: Configure uma requisição de Criação de álbum (*Thread Group -> Sampler -> Http Request*).
-![](resources\images\jmeter-CreateAlbumRequest.JPG)  
+![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/jmeter-CreateAlbumRequest.JPG)  
   
   Passo 4: Configure um *JSON Extractor* para obter o identificador do álbum criado (*Http Request -> Add -> Post Processor -> JSON Extractor*).
-![](resources\images\jmeter-jsonextractoralbum.JPG) 
+![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/jmeter-jsonextractoralbum.JPG) 
 
   Passo 5: Configure uma requisição de Exclusão do álbum. (*Thread Group -> Sampler -> Http Request*)
-  ![](resources\images\jmeter-deletealbumrequest.JPG) 
+  ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/jmeter-deletealbumrequest.JPG) 
   
   Passo 6: Adicione um componente para avaliar o resultado das respostas, o que é útil na depuração do teste. (*Thread Group -> Add -> Listener -> View Results Tree*) 
-  ![](resources\images\jmeer-resultstree.JPG) 
+  ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/jmeer-resultstree.JPG) 
   
   O arquivo " TesteAlbum.jmx" foi criado seguindo todos esses passos.
 ##### Execução do teste
@@ -101,27 +101,27 @@ Abra o arquivo "jmeter.bat" localiza bin do pacote JMeter. <br />
 ##### Resultados:
   Abra a pasta *Report* criada, e abra o arquivo "index.html", no qual teremos métricas das requisições realizadas. 
 
-   ![](resources\images\jmeter-results.JPG) 
+   ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/jmeter-results.JPG) 
 
    Com o dashboard gerado temos facilmente as seguintes informações:
    
    - Tabela com dados estatísticos dos percentis 90, 95 e 99 do tempo de resposta, número de requisições por segundo, bytes recebidos e enviados:
-   ![](resources\images\jmeter-results-statistics.JPG) 
+   ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/jmeter-results-statistics.JPG) 
 
    - Tempo de resposta médio das requisições ao longo do tempo de teste:
-   ![](resources\images\jmeter-results-overtime.JPG)
+   ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/jmeter-results-overtime.JPG)
    
    - Série de percentis do tempo de resposta ao longo do tempo:
-  ![](resources\images\jmeter-results-timepercentile.JPG)
+  ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/jmeter-results-timepercentile.JPG)
 
   - Análise do tempo de resposta em relação ao volume de requisições:
-  ![](resources\images\jmeter-responsetimeoverview.JPG)
+  ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/jmeter-responsetimeoverview.JPG)
 
    -  Threads ativas ao longo do tempo:
-   ![](resources\images\jmeter-activetheads.JPG)
+   ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/jmeter-activetheads.JPG)
 
    -  Latência média ao longo do tempo:
-   ![](resources\images\jmeter-latencyovertime.JPG)
+   ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/jmeter-latencyovertime.JPG)
 
 ### TESTE COM GATLING
 #### Configuração do ambiente:
@@ -153,20 +153,20 @@ Configurando os parâmetros *DiretorioDoScript* e *DiretoDoResulado* de acordo c
 
 ##### Resultados:
  Abra a pasta "album - {DataDeExecucao}" criada, e abra o arquivo "index.html", no qual teremos métricas das requisições realizadas. 
-![](resources\images\gatling-results.JPG)
+![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/gatling-results.JPG)
   Com o dashboard gerado temos facilmente as seguintes informações:
 
 - Tabela com dados estatísticos dos percentis 90, 95 e 99 do tempo de resposta, número de requisições por segundo, bytes recebidos e enviados:
-   ![](resources\images\gatling-statistics.JPG) 
+   ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/gatling-statistics.JPG) 
 
 - Distribuição do tempo de resposta:
-   ![](resources\images\gatling-timedistribution.JPG)
+   ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/resources/images/gatling-timedistribution.JPG)
    
 - Série de percentis do tempo de resposta ao longo do tempo:
-  ![](resources\images\gatling-percentileovertime.JPG)
+  ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/gatling-percentileovertime.JPG)
 
 - Usuários ativos ao longo do tempo:
-   ![](resources\images\gatling-activeusers.JPG)
+   ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/gatling-activeusers.JPG)
 
 ### TESTE COM LOCUST
 O Locust é uma ferramenta *open source* escrita em *Python* para testes de desempenho em aplicações web. 
@@ -222,18 +222,18 @@ Uma aplicação na porta 8089 será "atachada" ao comando executado no console. 
 Após 1min de execução clique no botão Stop no canto superior esquerdo.
 Após isso será exibido o seguinte painel:
 
-![](resources\images\locust-results.JPG)
+![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/locust-results.JPG)
 
  A partir do qual será possível obter as métricas:
 
 - Tempo médio de resposta ao longo do tempo:
-   ![](resources\images\locust-responsetime.JPG)
+   ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/locust-responsetime.JPG)
    
 - Número de requisições por segundo ao longo do tempo:
-  ![](resources\images\locust-requestperseccond.JPG)
+  ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/locust-requestperseccond.JPG)
 
 - Usuários ativos ao longo do tempo:
-   ![](resources\images\locust-activeusers.JPG) 
+   ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/locust-activeusers.JPG) 
 
 
 ### EXTRA: TESTE COM BLAZEMETER
@@ -243,29 +243,29 @@ Após isso será exibido o seguinte painel:
 #### EXEMPLO: EXECUÇÃO DE SCRIPT GERADO COM JMETER
 
 Criação de novo teste:
-![](resources\images\blazemeter-perfomancetest.JPG)
+![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/blazemeter-perfomancetest.JPG)
 
 A opção "*Performance Test*" permite o upload de scripts de testes enquanto a opção "Test Creation Tools" permite a gravação de cenários customizados por registro de um proxy configurado no seu computador.
 
 Selecione a opção "*Performance Test*":
-![](resources\images\blazemeter-uploadscript.JPG)
+![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/blazemeter-uploadscript.JPG)
 
 Clique no botão "Upload Script" e selecione o arquivo "TesteAlbum.jmx" criado nos testes com a ferramenta JMeter.
 
 Altere a localização da estação que irá executar os testes para "São Paulo - Brazil":
-![](resources\images\blazemeter-loaddistribution.JPG)
+![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/blazemeter-loaddistribution.JPG)
 
 Com uma conta paga é possível distribuir a carga do teste em várias estações localizadas em várias regiões do mundo.
 
 Também é possível integrar com ferramentas de APM ("Application Performance Management")
 de forma a integrar resultados do testes de desempenho a métricas diretamente relacionadas a infraestrutura da aplicação como percentual de utilização de CPU, consumo de memória, carga por servidores e etc.
 
-![](resources\images\blazemeter-apmintegration.JPG)
+![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/blazemeter-apmintegration.JPG)
 
 Clique no botão "Run Test" e espere a execução do 
 
-![](resources\images\blazemeter-testresults.JPG)
+![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/blazemeter-testresults.JPG)
 
 Na seção "Time Line Report" é possível consultar uma série de gráficos ao longo do tempo, como usuários ativos, requisições por segundo, tempo de reposta (percentil de 50,90,95 e 99), bytes recebidos por segundo e etc.
 Abaixo é mostrado um exemplo do tempo de resposta (percentil de 90, 95 e 99) das requisições feitas:
-![](resources\images\blazemeter-kpiselection.JPG)
+![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/blazemeter-kpiselection.JPG)
