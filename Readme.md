@@ -13,7 +13,7 @@ Nesse tutorial serão demostrados a configuração e os resultados de um teste d
 
 ## **DESCRIÇÃO DO CENÁRIO DE TESTE**
 
-Serão feitas requisições https à uma API pública de albums fornecida pelo portal [JSONPlaceholder](https://jsonplaceholder.typicode.com).
+Serão feitas requisições à uma API pública de albums fornecida pelo portal [JSONPlaceholder](https://jsonplaceholder.typicode.com).
 
 Todos os testes e configurações demostradas nesse tutorial foram executas em uma máquina configurada com o sistema operacional Windows.
 
@@ -76,7 +76,7 @@ Abra o arquivo "jmeter.bat" localiza bin do pacote JMeter. <br />
   Passo 1: Configure as tarefas a serem executadas no teste (*Add -> Threads(Users) -> Thread Group*).
 ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/jmeter-theadgroup.JPG)
   
-  Passo 2: Configure uma requisição padrão com o *endpoint * (https://jsonplaceholder.typicode.com)  necessário para todas as solicitações (*Thread Group -> Config Element -> Http Request Default*).
+  Passo 2: Configure uma requisição padrão com o *endpoint* (https://jsonplaceholder.typicode.com)  necessário para todas as solicitações (*Thread Group -> Config Element -> Http Request Default*).
 ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/jmeter-httpdefault.JPG)
  
   Passo 3: Configure uma requisição de Criação de álbum (*Thread Group -> Sampler -> Http Request*).
@@ -276,15 +276,15 @@ Altere a localização da estação que irá executar os testes para "São Paulo
 
 Com uma conta paga é possível distribuir a carga do teste em várias estações localizadas em várias regiões do mundo.
 
-Também é possível integrar com ferramentas de APM ("Application Performance Management")
+Também é possível integrar com ferramentas de APM ("*Application Performance Management*")
 de forma a integrar resultados do testes de desempenho a métricas diretamente relacionadas a infraestrutura da aplicação como percentual de utilização de CPU, consumo de memória, carga por servidores e etc.
 
 ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/blazemeter-apmintegration.JPG)
 
-Clique no botão "Run Test" e espere a execução do 
+Clique no botão "*Run Test*" e espere a execução do 
 
 ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/blazemeter-testresults.JPG)
 
-Na seção "Time Line Report" é possível consultar uma série de gráficos ao longo do tempo, como usuários ativos, requisições por segundo, tempo de reposta (percentil de 50,90,95 e 99), bytes recebidos por segundo e etc.
+Na seção "*Time Line Report*" é possível consultar uma série de gráficos ao longo do tempo, como usuários ativos, requisições por segundo, tempo de reposta (percentil de 50, 90, 95 e 99), bytes recebidos por segundo e etc.
 Abaixo é mostrado um exemplo do tempo de resposta (percentil de 90, 95 e 99) das requisições feitas:
 ![](https://github.com/dtidigitalcrafters/fractal-poc-ferramentas-teste-desempenho/blob/master/resources/images/blazemeter-kpiselection.JPG)
